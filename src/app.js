@@ -1,4 +1,4 @@
-import express from "express"
+import express, { Router } from "express"
 import cookieParser from "cookie-parser"
 import cors from "cors"
 
@@ -26,6 +26,14 @@ app.use(express.static("public"))
 //server se user ki browser ki cookies access kar pau 
 //basically crud ioperation on cookies
 app.use(cookieParser())
+
+//routes
+
+import userRouter from "./routes/user.routes.js"
+
+// routes declaration
+app.use("/api/v1/users", userRouter)
+
 
 
 export { app }
